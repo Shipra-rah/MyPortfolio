@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+ background: black;
+ height: 100%;
+ width: 100%;
+ font-family: 'Poppins', 'Inter', 'Roboto', sans-serif;
+ font-size: 16px;
+ line-height: 1.5;
+ color: white;
+}

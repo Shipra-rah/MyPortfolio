@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="transparent" />
+
+  <!-- Glow Filter for Neon Effect -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#ff1a75"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#ff1a75"/>
+    </filter>
+  </defs>
+
+  <!-- "S" in cursive style -->
+  <text x="50" y="100" font-family="Segoe Script, Brush Script MT, cursive" font-size="60" fill="white">S</text>
+
+  <!-- "hipra" in bold (closer to S) -->
+  <text x="85" y="100" font-family="Arial Black, sans-serif" font-size="32" fill="white">hipra</text>
+
+  <!-- Dots below text -->
+  <circle cx="135" cy="125" r="2" fill="white" />
+  <circle cx="150" cy="125" r="3" fill="white" />
+  <circle cx="165" cy="125" r="4" fill="white" />
+  <circle cx="180" cy="125" r="5" fill="white" />
+
+  <!-- First heart: placed near 'a' (x ≈ 215) -->
+  <path d="
+    M215,85
+    C215,75 195,75 195,90
+    C195,105 215,115 215,125
+    C215,115 235,105 235,90
+    C235,75 220,75 215,85
+  " fill="none" stroke="#ff1a75" stroke-width="2" filter="url(#glow)" />
+
+  <!-- Second heart: slightly above and left -->
+  <path d="
+    M200,70
+    C195,90 180,60 170,75
+    C180,110 200,100 200,110
+    C200,100 220,90 220,75
+    C220,60 205,60 200,70
+  " fill="none" stroke="#ff1a75" stroke-width="2" filter="url(#glow)" />
+</svg>
