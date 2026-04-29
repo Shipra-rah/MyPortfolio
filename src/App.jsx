@@ -10,15 +10,7 @@ import Footer from "./Section/Footer";
 
 function App() {
   return (
-    <div
-      className="
-        flex flex-col
-        font-sans text-base leading-relaxed
-        justify-center items-center
-      "
-    >
-     
-
+    <div>    
       <Navbar />
       <section id="home">
         <Home />

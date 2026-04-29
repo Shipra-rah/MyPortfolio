@@ -1,54 +1,57 @@
-import React, { useState, useEffect } from "react";
-import { IoSchoolOutline } from "react-icons/io5";
-function EducationCard(probs) {
-  const [pass, setPass] = useState();
+import { useEffect, useState } from "react";
 
-  const Complete = () => {
-    const status = probs.pass === true ? "Completed" : "Pending";
-    setPass(status);
-  };
+function EducationCard({ course, collage, duration, status, description }) {
+  const [state, setState] = useState("");
 
   useEffect(() => {
-   return Complete();
-  }, [probs.pass]);
-
+    setState(status ? "Completed" : "Ongoing");
+  }, [status]);
 
   return (
-     <div className="w-11/12 md:w-8/12 bg-transparent text-white border border-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 my-10">
-      {/* Header section */}
-      <div className="flex justify-between items-start p-5 gap-6">
-        {/* Icon */}
-        <div className="text-5xl text-blue-400">
-          <IoSchoolOutline />
+    <div className="w-full flex gap-4">
+
+      {/* Accent Line */}
+      <div className="w-[2px] bg-emerald-400/70 rounded-full"></div>
+
+      {/* Card */}
+      <div className=" flex-1 border border-white/10 rounded-md px-5 py-4 bg-[#0b0b0b] hover:bg-[#101010] transition">
+
+        {/* Top */}
+        <div className="flex justify-between items-start">
+
+          <div>
+            <h3 className="text-base md:text-lg font-medium text-white">
+              {course}
+            </h3>
+            <p className="text-xs text-white/40 mt-1">
+              {collage}
+            </p>
+          </div>
+
+          <div className="text-right text-xs text-white/30">
+            <p>{duration}</p>
+            <p
+              className={`mt-1 ${
+                state === "Completed"
+                  ? "text-emerald-400"
+                  : "text-yellow-400"
+              }`}
+            >
+              {state}
+            </p>
+          </div>
         </div>
 
-        {/* Info */}
-        <div className="flex-1 flex flex-col gap-2">
-          <h1 className="text-xl md:text-2xl font-semibold text-white">{probs.course}</h1>
-          <p className="uppercase text-gray-300 tracking-wide text-sm md:text-base">
-            {probs.collage}
-          </p>
-          <p className={`text-sm ${pass === "Completed" ? "text-green-400" : "text-yellow-400"}`}>
-            {pass}
-          </p>
-        </div>
+        {/* Divider */}
+        <div className="h-[1px] bg-white/5 my-3"></div>
 
-        {/* Duration Badge */}
-        <div>
-          <span className="text-white text-xs md:text-sm px-3 py-1 font-medium shadow border border-gray-700 rounded-2xl">
-            {probs.duration}
-          </span>
-        </div>
+        {/* Description */}
+        <p className="text-xs md:text-sm text-white/40 leading-relaxed">
+          {description}
+        </p>
       </div>
-
-      {/* Optional Description */}
-      {probs.description && (
-        <div className="px-5 pb-4 text-sm text-gray-400">
-          {probs.description}
-        </div>
-      )}
     </div>
-  
   );
 }
+
 export default EducationCard;

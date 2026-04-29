@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import NavbarMenu from "./NavbarMenu";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import gsap from "gsap";
+import Shipralogo from "../assets/Shipralogo.svg";
 
 const MenuItem = [
   { name: "Home", path: "#home" },
   { name: "About", path: "#about" },
   { name: "Projects", path: "#project" },
+  { name: "Education", path: "#education" },
   { name: "Contact", path: "#contact" },
 ];
 
@@ -17,46 +19,44 @@ function Navbar() {
   const mobileMenuRef = useRef(null);
   const lastScrollY = useRef(0);
 
-  // Initial animation on page load
+  /* 🔹 Navbar Entry Animation */
   useEffect(() => {
     gsap.from(navbarRef.current, {
-      y: -100,
+      y: -80,
       opacity: 0,
-      duration: 1,
+      duration: 0.8,
       ease: "power3.out",
     });
   }, []);
 
-  // Hide navbar on scroll down, show on scroll up & background change
+  /* 🔹 Scroll Behavior */
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      const current = window.scrollY;
 
-      if (currentScrollY > 50) setScrolled(true);
-      else setScrolled(false);
+      setScrolled(current > 40);
 
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        // scroll down -> hide
-        gsap.to(navbarRef.current, { y: -80, opacity: 0, duration: 0.3, ease: "power2.out" });
+      if (current > lastScrollY.current && current > 100) {
+        gsap.to(navbarRef.current, { y: -80, opacity: 0, duration: 0.3 });
       } else {
-        // scroll up -> show
-        gsap.to(navbarRef.current, { y: 0, opacity: 1, duration: 0.1, ease: "power2.out" });
+        gsap.to(navbarRef.current, { y: 0, opacity: 1, duration: 0.3 });
       }
 
-      lastScrollY.current = currentScrollY;
+      lastScrollY.current = current;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on outside click
+  /* 🔹 Close menu outside */
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
         setMenuOpen(false);
       }
     };
+
     if (menuOpen) window.addEventListener("mousedown", handleClickOutside);
     return () => window.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
@@ -64,70 +64,95 @@ function Navbar() {
   return (
     <nav
       ref={navbarRef}
-      className={`fixed top-0 w-full z-50 backdrop-blur-md shadow-md transition-all duration-300 ${
-        scrolled ? "bg-black/90 shadow-lg" : "bg-black/60 shadow-sm"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300
+      backdrop-blur-xl border-b border-white/10
+      ${scrolled ? "bg-black/70" : "bg-black/40"}`}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center h-16 px-4 md:px-8">
+      {/* Container */}
+      <div className="max-w-7xl mx-auto flex justify-between items-center h-16 px-4 md:px-10">
         {/* Logo */}
-        <div className="flex items-center">
-          <img
-            src="./src/assets/Shipralogo.svg"
-            alt="Logo"
-            className="h-12 md:h-16 hover:scale-105 transition-transform duration-300"
-          />
-        </div>
+        <img
+          src={Shipralogo}
+          alt="Logo"
+          className="h-10 md:h-12 cursor-pointer hover:scale-105 transition"
+        />
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-gray-400 text-base">
-          {MenuItem.map((item, index) => (
-            <a key={index} href={item.path} className="relative group">
-              <NavbarMenu name={item.name} />
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
+        <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
+          {MenuItem.map((item, i) => (
+            <a key={i} href={item.path} className="group relative">
+              <span className="hover:text-white transition">
+                <NavbarMenu name={item.name} />
+              </span>
+
+              <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-white transition-all group-hover:w-full"></span>
             </a>
           ))}
+
+          {/* Resume Button */}
           <a
-            href="./src/assets/Resume.pdf"
-            className="bg-white text-black px-3 py-1 rounded-md hover:bg-gray-200 transition"
+            href="/public/Resume.pdf"
+            target="_blank"
+            className="ml-4 px-4 py-1.5 rounded-md border border-white/20 text-white/80 hover:text-black hover:bg-white transition"
           >
             Resume
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
-        <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-gray-400 hover:text-white text-2xl focus:outline-none"
-          >
-            {menuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
-          </button>
-        </div>
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-xl text-white/70 hover:text-white transition"
+        >
+          {menuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* 🔥 Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition ${
+          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        onClick={() => setMenuOpen(false)}
+      />
+
+      {/* 🔥 Sidebar Menu */}
       <div
         ref={mobileMenuRef}
-        className={`md:hidden fixed inset-x-0 top-16 bg-black/90 backdrop-blur-md flex flex-col items-center gap-6 py-6 text-gray-300 transform transition-transform duration-500 ${
-          menuOpen ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0 pointer-events-none"
-        }`}
+        className={`fixed top-0 left-0 h-full w-64 bg-[#0d0d0d]
+        border-r border-white/10 z-50
+        flex flex-col justify-between
+        transform transition-transform duration-500 ease-in-out
+        ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-        {MenuItem.map((item, index) => (
+        {/* Top */}
+        <div className="p-6 flex flex-col gap-8">
+          <div className="text-lg font-semibold text-white">Shipra</div>
+
+          <div className="flex flex-col gap-5">
+            {MenuItem.map((item, i) => (
+              <a
+                key={i}
+                href={item.path}
+                onClick={() => setMenuOpen(false)}
+                className="text-white/50 hover:text-white transition hover:translate-x-1"
+              >
+                <NavbarMenu name={item.name} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="p-6 border-t border-white/10">
           <a
-            key={index}
-            href={item.path}
-            className="hover:text-white text-lg transition"
-            onClick={() => setMenuOpen(false)}
+            href="/Resume.pdf"
+            target="_blank"
+            className="block text-center py-2 rounded-md bg-white text-black hover:bg-gray-200 transition"
           >
-            <NavbarMenu name={item.name} />
+            Resume
           </a>
-        ))}
-        <a
-          href="./src/assets/Resume.pdf"
-          className="bg-white text-black px-4 py-2 rounded-md hover:bg-gray-200 transition"
-        >
-          Resume
-        </a>
+        </div>
       </div>
     </nav>
   );

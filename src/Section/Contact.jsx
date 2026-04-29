@@ -1,145 +1,95 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
-
-gsap.registerPlugin(ScrollTrigger);
-
 function Contact() {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    if (sectionRef.current) {
-      gsap.fromTo(
-        sectionRef.current.children,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-          },
-        }
-      );
-    }
-  }, []);
-
   return (
-    <div
-      ref={sectionRef}
-      className="flex justify-center items-center min-h-screen w-full px-6 md:px-20 py-16 md:py-20 bg-black"
-    >
-      <div className="w-full max-w-6xl text-white">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
-            Let’s <span className="text-blue-400">Connect</span>
-          </h1>
-          <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Whether you have an opportunity, a project idea, or just want to say hello —
-            I’d love to hear from you.
-          </p>
+    <section className="min-h-screen flex items-center justify-center bg-black px-4">
+
+      {/* Main Container */}
+      <div className="
+        w-full md:w-10/12 lg:w-9/12
+        min-h-[70vh]
+        bg-[#111] border border-white/10 rounded-2xl
+        px-6 md:px-10 py-8
+        flex flex-col justify-between
+      ">
+
+        {/* Top Bar */}
+        <div className="flex justify-between items-center">
+          <div className="w-24 h-6 bg-white/10 rounded-full"></div>
+
+          <div className="flex gap-2 md:gap-4">
+            <div className="w-5 h-2 bg-white/20 rounded"></div>
+            <div className="w-5 h-2 bg-white/20 rounded"></div>
+            <div className="w-5 h-2 bg-white/20 rounded"></div>
+          </div>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
-          {/* Contact Info */}
-          <div className="flex flex-col justify-center gap-10">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-                Let’s Talk
-              </h2>
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                I’m open to exciting opportunities and collaborations. Feel free
-                to drop me a message and let’s create something amazing together.
-              </p>
-            </div>
+        {/* Content */}
+        <div className="
+          flex flex-col md:flex-row
+          gap-10 md:gap-12
+          h-full mt-6
+        ">
 
-            {/* Info */}
-            <div className="flex flex-col gap-6">
-              <div>
-                <h3 className="text-lg md:text-xl font-semibold">Email</h3>
-                <p className="text-gray-400">shiprarah@gmail.com</p>
-              </div>
-              <div>
-                <h3 className="text-lg md:text-xl font-semibold">Location</h3>
-                <p className="text-gray-400">Noida, UP, India</p>
-              </div>
-              <div>
-                <h3 className="text-lg md:text-xl font-semibold">Status</h3>
-                <p className="text-gray-400">Available for Hire</p>
-              </div>
-            </div>
+          {/* LEFT */}
+          <div className="w-full md:w-1/2 flex flex-col justify-center gap-5 text-white">
 
-            {/* Social Links */}
-            <div className="flex gap-6 mt-4">
-              <a
-                href="mailto:shiprarah@gmail.com"
-                className="text-gray-400 hover:text-white text-2xl transition"
-              >
-                <FaEnvelope />
-              </a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 text-2xl transition"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="https://github.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-200 text-2xl transition"
-              >
-                <FaGithub />
-              </a>
+            <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
+              Let’s chat.
+            </h1>
+
+            <p className="text-white/50 text-sm max-w-sm">
+              Feel free to reach out for opportunities, collaborations, or any ideas.
+            </p>
+
+            {/* subtle lines */}
+            <div className="space-y-2">
+              <div className="h-1 w-32 bg-white/20 rounded"></div>
+              <div className="h-1 w-24 bg-white/20 rounded"></div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white/10 backdrop-blur-lg p-6 md:p-8 rounded-2xl border border-white/20 shadow-xl">
-            <form className="flex flex-col gap-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-white placeholder-gray-400"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-white placeholder-gray-400"
-                  placeholder="Your Email"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
-                <textarea
-                  rows="5"
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-white placeholder-gray-400 resize-none"
-                  placeholder="Your Message"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
-              >
-                Send Message
-              </button>
-            </form>
+          {/* RIGHT (FORM) */}
+          <div className="w-full md:w-1/2 flex flex-col justify-center gap-4 text-white">
+
+            {/* Name */}
+            <div className="flex flex-col gap-1">
+              <label className="text-xs text-white/40">Name</label>
+              <input
+                type="text"
+                className="w-full bg-transparent border border-white/20 px-3 py-2 rounded-md focus:outline-none focus:border-white/40 transition text-sm"
+              />
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col gap-1">
+              <label className="text-xs text-white/40">Email</label>
+              <input
+                type="email"
+                className="w-full bg-transparent border border-white/20 px-3 py-2 rounded-md focus:outline-none focus:border-white/40 transition text-sm"
+              />
+            </div>
+
+            {/* Message */}
+            <div className="flex flex-col gap-1">
+              <label className="text-xs text-white/40">Message</label>
+              <textarea
+                rows="3"
+                className="w-full bg-transparent border border-white/20 px-3 py-2 rounded-md focus:outline-none focus:border-white/40 transition resize-none text-sm"
+              ></textarea>
+            </div>
+
+            {/* Button */}
+            <button className="
+              w-fit bg-white text-black px-5 py-2 rounded-md
+              hover:bg-gray-200 transition text-sm mt-2
+            ">
+              Send message
+            </button>
+
           </div>
         </div>
+
       </div>
-    </div>
+    </section>
   );
 }
 

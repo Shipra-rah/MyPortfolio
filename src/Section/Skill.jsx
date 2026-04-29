@@ -25,23 +25,23 @@ function Skill() {
   ];
   return (
     <div className="min-h-screen px-6 md:px-20 py-16 md:py-20 text-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+      <div className="max-w-4xl mx-auto">
+        <div className=" mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">Skills and Tools</h1>
-          <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-sm text-gray-300  mx-auto leading-relaxed">
             Technologies I work with to bring ideas to life
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 md:gap-8">
           {skills.map((Items, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-6 bg-black/20 backdrop-blur-sm rounded-xl hover:bg-black/40 transition-all duration-300 hover:scale-105 hover:shadow-lg border border-white/10"
+              className="flex flex-col items-center p-3 bg-black/20 backdrop-blur-sm rounded-xl hover:bg-black/40 transition-all duration-300 hover:scale-105 hover:shadow-lg border border-white/10"
             >
-              <div className={`text-4xl md:text-5xl mb-3 ${Items.color} transition-transform duration-300 hover:scale-110`}>
+              <div className={`text-2xl md:text-3xl mb-1 ${Items.color} transition-transform duration-300 hover:scale-110`}>
                 {Items.icon}
               </div>
-              <span className="text-sm md:text-base font-medium text-center">{Items.name}</span>
+              <span className="text-sm md:text-sm font-medium text-center">{Items.name}</span>
             </div>
           ))}
         </div>
