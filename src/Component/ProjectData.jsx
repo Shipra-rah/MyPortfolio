@@ -1,8 +1,9 @@
+import img1 from "../public/ShipraProfile.jpg";
 
 const projectsData = [
   {
     title: "Portfolio Website",
-    image: "/public/ShipraProfile.jpg",
+    image: img1,
     description: "A responsive portfolio website built with React and Tailwind CSS showcasing projects and skills.",
     gitlink: "https://github.com/",
     livelink: "https://",
@@ -11,7 +12,7 @@ const projectsData = [
   },
   {
     title: "E-commerce Platform",
-   image: "/public/ShipraProfile.jpg",
+   image: img1,
     description: "Full-stack e-commerce application with user authentication, product management, and payment integration.",
     gitlink: "https://github.com/",
     livelink: "https://",
@@ -20,7 +21,7 @@ const projectsData = [
   },
   {
     title: "Task Management App",
-    image: "/public/ShipraProfile.jpg",
+    image: img1,
     description: "A collaborative task management application with real-time updates and team collaboration features.",
     gitlink: "https://github.com/",
     livelink: "https://",
@@ -29,7 +30,7 @@ const projectsData = [
   },
   {
     title: "Portfolio Website",
-    image: "/public/ShipraProfile.jpg",
+    image: img1,
     description: "A responsive portfolio website built with React and Tailwind CSS showcasing projects and skills.",
     gitlink: "https://github.com/",
     livelink: "https://",
@@ -38,7 +39,7 @@ const projectsData = [
   },
   {
     title: "E-commerce Platform",
-    image: "/public/ShipraProfile.jpg",
+    image: img1,
     description: "Full-stack e-commerce application with user authentication, product management, and payment integration.",
     gitlink: "https://github.com/",
     livelink: "https://",
@@ -47,7 +48,7 @@ const projectsData = [
   },
   {
     title: "Task Management App",
-    image: "/public/ShipraProfile.jpg",
+    image: img1,
     description: "A collaborative task management application with real-time updates and team collaboration features.",
     gitlink: "https://github.com/",
     livelink: "https://",
