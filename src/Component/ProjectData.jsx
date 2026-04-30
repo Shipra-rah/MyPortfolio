@@ -1,60 +1,60 @@
-import img1 from "../public/ShipraProfile.jpg";
+import img1 from "../assets/ShipraProfile.jpg";
 
 const projectsData = [
   {
     title: "Portfolio Website",
     image: img1,
-    description: "A responsive portfolio website built with React and Tailwind CSS showcasing projects and skills.",
-    gitlink: "https://github.com/",
-    livelink: "https://",
+    description:
+      "A responsive personal portfolio built with React and Tailwind CSS to showcase projects, skills, and contact details.",
+    gitlink: "https://github.com/your-username/portfolio",
+    livelink: "https://your-portfolio-link.com",
     skill: ["React", "Tailwind CSS", "JavaScript"],
     category: "Self Build",
   },
+
   {
-    title: "E-commerce Platform",
-   image: img1,
-    description: "Full-stack e-commerce application with user authentication, product management, and payment integration.",
-    gitlink: "https://github.com/",
-    livelink: "https://",
-    skill: ["Java", "Spring Boot", "React", "MySQL"],
+    title: "E-commerce Web App",
+    image: img1,
+    description:
+      "Full-stack e-commerce platform with product management, user authentication, and order handling using Java and MySQL.",
+    gitlink: "https://github.com/your-username/ecommerce",
+    livelink: "https://your-ecommerce-link.com",
+    skill: ["Java", "JSP", "Servlets", "MySQL"],
     category: "College",
   },
+
   {
-    title: "Task Management App",
+    title: "Quiz Application",
     image: img1,
-    description: "A collaborative task management application with real-time updates and team collaboration features.",
-    gitlink: "https://github.com/",
-    livelink: "https://",
-    skill: ["JavaScript", "Node.js", "MongoDB", "Socket.io"],
-    category: "AI Based",
-  },
-  {
-    title: "Portfolio Website",
-    image: img1,
-    description: "A responsive portfolio website built with React and Tailwind CSS showcasing projects and skills.",
-    gitlink: "https://github.com/",
-    livelink: "https://",
-    skill: ["React", "Tailwind CSS", "JavaScript"],
+    description:
+      "Interactive quiz app with timer, score tracking, and dynamic questions using React hooks and modern UI design.",
+    gitlink: "https://github.com/your-username/quiz-app",
+    livelink: "https://your-quiz-link.com",
+    skill: ["React", "JavaScript", "CSS"],
     category: "Self Build",
   },
+
   {
-    title: "E-commerce Platform",
+    title: "Task Management System",
     image: img1,
-    description: "Full-stack e-commerce application with user authentication, product management, and payment integration.",
-    gitlink: "https://github.com/",
-    livelink: "https://",
-    skill: ["Java", "Spring Boot", "React", "MySQL"],
+    description:
+      "A task management tool with CRUD operations, user sessions, and structured backend using JDBC and Servlets.",
+    gitlink: "https://github.com/your-username/task-manager",
+    livelink: "https://your-task-link.com",
+    skill: ["Java", "JDBC", "Servlets", "MySQL"],
     category: "College",
   },
+
   {
-    title: "Task Management App",
+    title: "AI Text to Image Generator",
     image: img1,
-    description: "A collaborative task management application with real-time updates and team collaboration features.",
-    gitlink: "https://github.com/",
-    livelink: "https://",
-    skill: ["JavaScript", "Node.js", "MongoDB", "Socket.io"],
+    description:
+      "Web application that converts text prompts into images using external APIs with async handling and responsive UI.",
+    gitlink: "https://github.com/your-username/ai-image",
+    livelink: "https://your-ai-link.com",
+    skill: ["JavaScript", "API", "HTML", "CSS"],
     category: "AI Based",
-  }
+  },
 ];
 
 export default projectsData;
