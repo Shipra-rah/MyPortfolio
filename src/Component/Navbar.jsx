@@ -3,6 +3,7 @@ import NavbarMenu from "./NavbarMenu";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import gsap from "gsap";
 import Shipralogo from "../assets/Shipralogo.svg";
+import Resume from "../assets/Resume.pdf";
 
 const MenuItem = [
   { name: "Home", path: "#home" },
@@ -91,7 +92,7 @@ function Navbar() {
 
           {/* Resume Button */}
           <a
-            href="/public/Resume.pdf"
+            href={Resume}
             target="_blank"
             className="ml-4 px-4 py-1.5 rounded-md border border-white/20 text-white/80 hover:text-black hover:bg-white transition"
           >
@@ -146,7 +147,7 @@ function Navbar() {
         {/* Bottom */}
         <div className="p-6 border-t border-white/10">
           <a
-            href="/Resume.pdf"
+            href={Resume}
             target="_blank"
             className="block text-center py-2 rounded-md bg-white text-black hover:bg-gray-200 transition"
           >
