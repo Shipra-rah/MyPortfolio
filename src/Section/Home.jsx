@@ -5,8 +5,8 @@ import MouseLogo from "../Component/MouseLogo";
 
 function Home() {
   const homeBtn = [
-    { name: "Get in Touch", id: "#contact"}, 
-    { name: "See Project", id: "#project"}
+    { name: "Get in Touch", id: "#contact", isPrimary: true }, 
+    { name: "See Projects", id: "#project", isPrimary: false }
   ];
   return (
     <div className="w-full flex justify-center items-center flex-col gap-8 min-h-screen px-6 md:px-20 py-20">
@@ -31,8 +31,8 @@ function Home() {
           </p>
         </div>
         <div className="flex justify-center items-center gap-6 md:gap-9 flex-wrap">
-          {homeBtn.map((homeBtn, index) => (
-            <HomeButton key={index} name={homeBtn.name} id={homeBtn.id} />
+          {homeBtn.map((btn, index) => (
+            <HomeButton key={index} name={btn.name} id={btn.id} isPrimary={btn.isPrimary} />
           ))}
         </div>
       </div>

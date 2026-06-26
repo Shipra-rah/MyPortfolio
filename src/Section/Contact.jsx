@@ -1,6 +1,6 @@
 function Contact() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-black px-4">
+    <section className="min-h-screen flex items-center justify-center bg-transparent px-4">
 
       {/* Main Container */}
       <div className="
@@ -51,36 +51,37 @@ function Contact() {
           <div className="w-full md:w-1/2 flex flex-col justify-center gap-4 text-white">
 
             {/* Name */}
-            <div className="flex flex-col gap-1">
-              <label className="text-xs text-white/40">Name</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs text-white/40 tracking-wider">Name</label>
               <input
                 type="text"
-                className="w-full bg-transparent border border-white/20 px-3 py-2 rounded-md focus:outline-none focus:border-white/40 transition text-sm"
+                className="w-full bg-white/[0.02] border border-white/10 px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-white/30 backdrop-blur-sm transition text-sm text-white"
               />
             </div>
 
             {/* Email */}
-            <div className="flex flex-col gap-1">
-              <label className="text-xs text-white/40">Email</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs text-white/40 tracking-wider">Email</label>
               <input
                 type="email"
-                className="w-full bg-transparent border border-white/20 px-3 py-2 rounded-md focus:outline-none focus:border-white/40 transition text-sm"
+                className="w-full bg-white/[0.02] border border-white/10 px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-white/30 backdrop-blur-sm transition text-sm text-white"
               />
             </div>
 
             {/* Message */}
-            <div className="flex flex-col gap-1">
-              <label className="text-xs text-white/40">Message</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs text-white/40 tracking-wider">Message</label>
               <textarea
                 rows="3"
-                className="w-full bg-transparent border border-white/20 px-3 py-2 rounded-md focus:outline-none focus:border-white/40 transition resize-none text-sm"
+                className="w-full bg-white/[0.02] border border-white/10 px-3.5 py-2.5 rounded-lg focus:outline-none focus:border-white/30 backdrop-blur-sm transition resize-none text-sm text-white"
               ></textarea>
             </div>
 
             {/* Button */}
             <button className="
-              w-fit bg-white text-black px-5 py-2 rounded-md
-              hover:bg-gray-200 transition text-sm mt-2
+              w-fit bg-white text-black px-6 py-2.5 rounded-lg font-medium
+              hover:bg-gray-200 transition-all duration-300 text-sm mt-2
+              transform hover:-translate-y-0.5 active:translate-y-0
             ">
               Send message
             </button>

@@ -5,9 +5,9 @@ function Typing() {
       sequence={[
         "Java developer",
         2000,
-        "Frontend devloper",
+        "Frontend developer",
         2000,
-        "Full stack devloper",
+        "Full stack developer",
         2000,
       ]}
       speed={60}

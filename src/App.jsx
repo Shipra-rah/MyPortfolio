@@ -6,11 +6,15 @@ import Project from "./Section/Project";
 import Education from "./Section/Education";
 import Contact from "./Section/Contact";
 import Footer from "./Section/Footer";
+import StarBackground from "./Component/StarBackground";
+import CursorSmoke from "./Component/CursorSmoke";
 
 
 function App() {
   return (
     <div>    
+      <StarBackground />
+      <CursorSmoke />
       <Navbar />
       <section id="home">
         <Home />

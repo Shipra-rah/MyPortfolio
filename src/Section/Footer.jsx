@@ -1,10 +1,11 @@
 import { FaXTwitter, FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
+import ShipraProfile from "../assets/ShipraProfile.jpg";
 
 function Footer() {
   return (
-    <footer className="w-full bg-black text-white border-t border-white/10">
+    <footer className="w-full bg-transparent text-white border-t border-white/10">
 
       <div className="max-w-6xl mx-auto px-6 md:px-20 py-10 flex flex-col gap-8">
 
@@ -14,7 +15,7 @@ function Footer() {
           {/* LEFT */}
           <div className="flex items-center gap-4">
             <img
-              src="/ShipraProfile.jpg"   // ✅ FIXED PATH
+              src={ShipraProfile}
               alt=""
               className="h-10 w-10 rounded-full"
             />
@@ -30,10 +31,19 @@ function Footer() {
           {/* RIGHT (ICONS) */}
           <div className="flex items-center gap-4">
 
-            {[FaXTwitter, FaLinkedin, FaGithub, MdOutlineEmail].map(
-              (Icon, index) => (
-                <div
+            {[
+              { Icon: FaXTwitter, url: "https://x.com/Shiprex_0" },
+              { Icon: FaLinkedin, url: "https://www.linkedin.com/in/shivanshu-shivanshu-55b57a320/" },
+              { Icon: FaGithub, url: "https://github.com/Shipra-rah" },
+              { Icon: MdOutlineEmail, url: "mailto:Shiprarah@gmail.com" }
+            ].map((item, index) => {
+              const IconComponent = item.Icon;
+              return (
+                <a
                   key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
                   className="
                     flex items-center justify-center
                     w-10 h-10 rounded-full cursor-pointer
@@ -47,10 +57,10 @@ function Footer() {
                     transition-all duration-200
                   "
                 >
-                  <Icon size={16} />
-                </div>
-              )
-            )}
+                  <IconComponent size={16} />
+                </a>
+              );
+            })}
 
           </div>
         </div>

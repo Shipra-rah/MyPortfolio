@@ -72,17 +72,19 @@ function Navbar() {
       {/* Container */}
       <div className="max-w-7xl mx-auto flex justify-between items-center h-16 px-4 md:px-10">
         {/* Logo */}
-        <img
-          src={Shipralogo}
-          alt="Logo"
-          className="h-10 md:h-12 cursor-pointer hover:scale-105 transition"
-        />
+        <a href="#home">
+          <img
+            src={Shipralogo}
+            alt="Logo"
+            className="h-10 md:h-12 cursor-pointer hover:scale-105 transition"
+          />
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
           {MenuItem.map((item, i) => (
             <a key={i} href={item.path} className="group relative">
-              <span className="hover:text-white transition">
+              <span className="hover:text-white transition font-mono">
                 <NavbarMenu name={item.name} />
               </span>
 
@@ -111,9 +113,8 @@ function Navbar() {
 
       {/* 🔥 Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition ${
-          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={() => setMenuOpen(false)}
       />
 

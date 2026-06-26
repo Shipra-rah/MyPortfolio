@@ -9,7 +9,7 @@ function Education() {
   const details = [
     {
       course: "Diploma in Computer Science & Engineering",
-      collage: "CSJM Government Polytechnic, Ambedkar Nagar",
+      college: "CSJM Government Polytechnic, Ambedkar Nagar",
       duration: "Aug 2022 – 2025",
       status: true,
       description:
@@ -17,7 +17,7 @@ function Education() {
     },
     {
       course: "High School — Computer Science Stream",
-      collage: "JBIC Ramnagar, Ambedkar Nagar",
+      college: "JBIC Ramnagar, Ambedkar Nagar",
       duration: "Aug 2019 – 2021",
       status: true,
       description:
@@ -48,12 +48,12 @@ function Education() {
   }, []);
 
   return (
-    <section className="bg-black text-white  py-20">
+    <section className="bg-transparent text-white  py-20">
 
       {/* Header */}
       <div className="max-w-4xl mx-auto mb-14">
         <h2 className="text-3xl md:text-4xl font-semibold">
-          Education <span className="text-emerald-400">.</span>
+          Education<span className="text-emerald-400">.</span>
         </h2>
         <p className="text-white/30 mt-2 text-sm">
           Academic background

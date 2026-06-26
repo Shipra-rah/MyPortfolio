@@ -10,7 +10,7 @@ function About() {
             WELCOME
           </div>
           <div className="text-2xl md:text-3xl lg:text-4xl text-gray-300 font-light">
-            I'am
+            I'm
           </div>
           <div className="text-3xl md:text-4xl lg:text-6xl font-bold text-white">
             Shivanshu

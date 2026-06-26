@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function EducationCard({ course, collage, duration, status, description }) {
+function EducationCard({ course, college, duration, status, description }) {
   const [state, setState] = useState("");
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function EducationCard({ course, collage, duration, status, description }) {
       <div className="w-[2px] bg-emerald-400/70 rounded-full"></div>
 
       {/* Card */}
-      <div className=" flex-1 border border-white/10 rounded-md px-5 py-4 bg-[#0b0b0b] hover:bg-[#101010] transition">
+      <div className=" flex-1 border border-white/10 rounded-xl px-5 py-4 bg-white/[0.02] backdrop-blur-md hover:bg-white/[0.04] transition duration-300">
 
         {/* Top */}
         <div className="flex justify-between items-start">
@@ -24,7 +24,7 @@ function EducationCard({ course, collage, duration, status, description }) {
               {course}
             </h3>
             <p className="text-xs text-white/40 mt-1">
-              {collage}
+              {college}
             </p>
           </div>
 

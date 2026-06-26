@@ -1,4 +1,3 @@
-import SkillCard from "../Component/SkillCard";
 import { FaHtml5, FaCss3, FaReact, FaJava, FaPython, FaNodeJs, FaGitAlt, FaDocker, FaDatabase, FaAws } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiSpringboot, SiMongodb, SiTailwindcss, SiTypescript, SiPostgresql, SiExpress } from "react-icons/si";
@@ -32,16 +31,22 @@ function Skill() {
             Technologies I work with to bring ideas to life
           </p>
         </div>
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 md:gap-8">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           {skills.map((Items, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-3 bg-black/20 backdrop-blur-sm rounded-xl hover:bg-black/40 transition-all duration-300 hover:scale-105 hover:shadow-lg border border-white/10"
+              className="
+                flex flex-col items-center justify-center p-4 w-24 h-24 md:w-28 md:h-28
+                bg-white/[0.02] backdrop-blur-md rounded-2xl
+                border border-white/5 hover:border-white/10
+                transition-all duration-300 hover:scale-105 hover:bg-white/[0.05]
+                hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)]
+              "
             >
-              <div className={`text-2xl md:text-3xl mb-1 ${Items.color} transition-transform duration-300 hover:scale-110`}>
+              <div className={`text-3xl md:text-4xl mb-1.5 ${Items.color} transition-transform duration-300 hover:scale-110`}>
                 {Items.icon}
               </div>
-              <span className="text-sm md:text-sm font-medium text-center">{Items.name}</span>
+              <span className="text-xs md:text-xs font-medium text-center tracking-tight text-white/70">{Items.name}</span>
             </div>
           ))}
         </div>

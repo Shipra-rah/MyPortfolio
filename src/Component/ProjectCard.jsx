@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 /**
@@ -16,6 +17,10 @@ export default function ProjectCard({
   index,
   total,
 }) {
+  const cardRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
   const filename = title
     ? title.toLowerCase().replace(/\s+/g, "-") + ".jsx"
     : "project.jsx";
@@ -25,15 +30,39 @@ export default function ProjectCard({
       ? `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`
       : null;
 
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
     <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className="
-        w-full bg-[#111111] rounded-2xl overflow-hidden
-        border border-white/10 shadow-[0_32px_64px_rgba(0,0,0,0.6)]
+        relative w-full bg-white/[0.02] backdrop-blur-xl rounded-2xl overflow-hidden
+        border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.4)]
+        transition-all duration-300 hover:border-white/15
       "
     >
+      {/* ── Interactive Spotlight (Pink & White Smoke Glow) ───────────────── */}
+      {isHovered && (
+        <div
+          className="pointer-events-none absolute -inset-px rounded-2xl transition duration-300 z-0"
+          style={{
+            background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(244, 63, 94, 0.15), rgba(255, 255, 255, 0.05) 50%, transparent 100%)`,
+          }}
+        />
+      )}
+
       {/* ── Mac window bar ─────────────────────────────────────────────── */}
-      <div className="flex items-center gap-3 px-4 py-3 bg-[#1a1a1a] border-b border-white/[0.06]">
+      <div className="relative z-10 flex items-center gap-3 px-4 py-3 bg-white/[0.03] border-b border-white/[0.06] backdrop-blur-md">
         {/* Traffic lights */}
         <div className="flex gap-[6px]">
           <span className="w-[11px] h-[11px] rounded-full bg-[#ff5f57]" />
@@ -55,10 +84,10 @@ export default function ProjectCard({
       </div>
 
       {/* ── Card body ──────────────────────────────────────────────────── */}
-      <div className="flex flex-col md:flex-row">
+      <div className="relative z-10 flex flex-col md:flex-row">
 
         {/* ── Image panel ──────────────────────────────────────────────── */}
-        <div className="relative md:w-72 xl:w-80 flex-shrink-0 overflow-hidden bg-[#0d0d0d]">
+        <div className="relative md:w-72 xl:w-80 flex-shrink-0 overflow-hidden bg-black/40">
           {image ? (
             <img
               src={image}
@@ -75,9 +104,9 @@ export default function ProjectCard({
           )}
 
           {/* Gradient: fades right edge into card background on desktop */}
-          <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent via-transparent to-[#111111]/80 pointer-events-none" />
+          <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-transparent via-transparent to-black/60 pointer-events-none" />
           {/* Gradient: fades bottom edge on mobile */}
-          <div className="absolute inset-0 md:hidden bg-gradient-to-t from-[#111111]/90 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 md:hidden bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
 
           {/* Category badge */}
           {category && (

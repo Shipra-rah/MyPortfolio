@@ -38,7 +38,7 @@ function StackCard({ project, index, total, scrollYProgress }) {
         transformOrigin: "top center",
       }}
     >
-      <ProjectCard {...project} />
+      <ProjectCard {...project} index={index} total={total} />
     </motion.div>
   );
 }
@@ -55,7 +55,7 @@ export default function Project() {
   });
 
   return (
-    <section className="bg-black text-white">
+    <section className="bg-transparent text-white relative">
 
       {/* Header */}
       <div className=" flex justify-around items-center">
